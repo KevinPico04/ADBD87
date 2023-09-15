@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% load static %}
+
+<header class="row bg-black">
+    <div class="col-md-4">
+        <img src="{% static 'portfolio/perfil.png' %}" alt="" width="300" height="300">
+    </div>
+
+    <div class="col-md-8 my-auto p-4">
+        <h1>I am <strong>Kevin Pico</strong></h1>
+        <h3>Information Technology Student</h3>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid tempore temporibus
+            aut iusto earum saepe consectetur corrupti ut natus quod, magni nesciunt, adipisci
+            distinctio deserunt repellendus eligendi corporis ratione. Modi asperiores aspernatur
+            cupiditate minus rem mollitia quisquam, enim dolores corrupti suscipit esse, et aperiam
+            quod fuga, ipsa quaerat veniam odit eligendi minima illum! Asperiores modi saepe cumque,
+            similique sequi fugit?
+        </p>
+        <a class="btn btn-primary btn-lg rounded-0 my-3" href="{% static 'portfolio/cv.pdf' %}" target="_blank">
+            Download CV
+        </a>
+    </div>
+</header>
+
+<div class="row my-4 text-center">
+    <h3>My Projects</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, delectus.</p>
+
+    {% for project in projects %}
+    <div class="col-md-4 p-4">
+        <div class="card bg-black card-project">
+            <img src="{{ project.image.url }}" alt="{{ project.title }}" class="card-img-top" width="250" height="300">
+            <div class="card-body">
+                <p>{{ project.description }}</p>
+
+                <br>
+                {% if project.url %}
+                <a href="{{ project.url }}" class="btn btn-light rounded-0 btn-sm" target="_blank">{{ project.url }}</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
