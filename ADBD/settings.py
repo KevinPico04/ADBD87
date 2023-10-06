@@ -85,8 +85,9 @@ WSGI_APPLICATION = 'ADBD.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         # Feel free to alter this value to suit your needs.
-        default='postgresql://postgres:postgres@localhost:5432/mysite',
+        default='postgres://adbd87deployado_user:JnsKrdRIuMUKxUb4vbnQV51H4nJ0GuTO@dpg-ck6g1608elhc73dhs09g-a/adbd87deployado',
         conn_max_age=600
+        
     )
 }
 
