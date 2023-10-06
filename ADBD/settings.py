@@ -83,15 +83,13 @@ WSGI_APPLICATION = 'ADBD.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': '<dpg-ck6g1608elhc73dhs09g-a>',
-        'USER': '<adbd87deployado_user>',
-        'PASSWORD': '<JnsKrdRIuMUKxUb4vbnQV51H4nJ0GuTO>',
-        'HOST': '<adbd87deployado>',
-        'PORT': '<5432>',
-    }
+    'default': dj_database_url.config(
+        # Feel free to alter this value to suit your needs.
+        default='postgresql://postgres:postgres@localhost:5432/mysite',
+        conn_max_age=600
+    )
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
